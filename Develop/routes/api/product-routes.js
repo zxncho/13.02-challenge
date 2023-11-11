@@ -5,18 +5,24 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
+  Product.findAll;
+  include [
+
+  ]
   // find all products
   // be sure to include its associated Category and Tag data
 });
 
 // get one product
 router.get('/:id', (req, res) => {
+  Product.findAll
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
 });
 
 // create new product
 router.post('/', (req, res) => {
+  Product.create
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -93,7 +99,14 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+  Tag.findbyIdandDelete(req.params.id)
+  .then(() => {
+    res.status(200).json({message:'Product deleted successfully'});
+  })
+  .catch((err) => {
+    res.status(500).json({error: errmessage});
+  });
+  // delete on tag by its `id` value
 });
 
 module.exports = router;
