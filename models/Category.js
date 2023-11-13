@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require('../../config/connection.js');
+const sequelize = require('../config/connection');
 
 class Category extends Model {}
 
@@ -30,4 +30,8 @@ Category.init(
   }
 );
 
-module.exports = Category;
+const seedCategories = async () => {
+  await Category.bulkCreate([categoryData]);
+};
+
+module.exports = {Category, seedCategories};
