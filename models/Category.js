@@ -8,7 +8,7 @@ Category.init(
   {
     categoryName:
     {
-      type: DataTypes.String
+      type: DataTypes.String,
       allowNull: false
 
     },
