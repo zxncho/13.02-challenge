@@ -4,49 +4,48 @@ const { Category, Product } = require('../../models');
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => {
-  Category.findAll;
-  include 
-  [
-
-  ]
-  // find all categories
-  // be sure to include its associated Products
+  Category.findAll({
+    include: [Product],
+  })
+    .then((Category) => res.json(Category))
+    .catch((err) => res.status(500).json(err));
 });
 
 router.get('/:id', (req, res) => {
-  Category.findOne
-  [
-
-  ]
-  // find one category by its `id` value
-  // be sure to include its associated Products
+  Category.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include: [Product],
+  })
+    .then((Category) => res.json(Category))
+    .catch((err) => res.status(400).json(err));
 });
 
 router.post('/', (req, res) => {
-  Category.create
-  [
-
-  ]
-  // create a new category
+  Category.create(req.body)
+    .then((Category) => res.status(200).json(Category))
+    .catch((err) => res.status(400).json(err));
 });
 
 router.put('/:id', (req, res) => {
-  Category.update
-  [
-
-  ]
-  // update a category by its `id` value
+  Category.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((Category) => res.status(200).json(Category))
+    .catch((err) => res.status(400).json(err));
 });
 
 router.delete('/:id', (req, res) => {
-  Tag.findbyIdandDelete(req.params.id)
-  .then(() => {
-    res.status(200).json({message:'Category deleted successfully'});
+  Category.destroy({
+    where: {
+      id: req.params.id,
+    },
   })
-  .catch((err) => {
-    res.status(500).json({error: errmessage});
-  });
-  // delete on tag by its `id` value
+    .then((Category) => res.status(200).json(Category))
+    .catch((err) => res.status(400).json(err));
 });
 
 module.exports = router;
