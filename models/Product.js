@@ -22,30 +22,31 @@ Product.init(
       TYPE: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'category',
-        key: 'id',
+        // model: 'category',
+        // key: 'id',
+        foreignKey: 'category_id',
       }
-    }
+    },
    
     product_name:
     {
      TYPE: DataTypes.string,
      allowNull:false
-    }
+    },
     
     price:
     {
       TYPE: DataTypes.float,
-      allowNull:false
+      allowNull:false,
       validate: {
         isDecimal:true,
       }
-    }
+    },
 
     stock:
     {
-      TYPE: DataTypes.INTEGER
-      allowNull: false
+      TYPE: DataTypes.INTEGER,
+      allowNull: false,
      validate: {
       isNumeric: true,
      },

@@ -12,7 +12,7 @@ ProductTag.init(
       allowNull: false,
       primaryKey:true,
       autoIncrement: true
-    }
+    },
 
     tag_id:
     {
@@ -22,7 +22,7 @@ ProductTag.init(
         model:'tag',
         key: 'id'
       }
-    }
+    },
 
     id: {
       type: DataTypes.INTEGER,
