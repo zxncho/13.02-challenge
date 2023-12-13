@@ -8,15 +8,14 @@ ProductTag.init(
   {
     product_id:
     {
-      TYPE: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey:true,
-      autoIncrement: true
     },
 
     tag_id:
     {
-      TYPE: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model:'tag',
@@ -43,4 +42,9 @@ ProductTag.init(
   }
 );
 
-module.exports = ProductTag;
+const seedProductTags = async () => {
+  await ProductTag.bulkCreate([categoryData]);
+};
+
+
+module.exports = {ProductTag, seedProductTags};

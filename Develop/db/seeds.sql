@@ -6,7 +6,7 @@ VALUES (1,"Shirts"),
        (5,"Shoes"); 
 
 INSERT INTO Product (id, product_name, price, stock)
-VALUES (1,"Plain T-Shirt", 14.99, 14,),
+VALUES (1,"Plain T-Shirt", 14.99, 14),
        (5,"Running Sneakers", 90, 25),
        (4,"Brander Baseball Hat", 22.99, 12),
        (3,"Top 40 Music Compilation Vinyl Record", 12.99, 50),    
@@ -27,11 +27,11 @@ VALUES (1,1,6),
        (5,5,3);                            
 
 INSERT INTO Tag (id, tag_name)
-VALUES (3,"rock music"),
-       (3,"pop music"),
+VALUES (1,"rock music"),
+       (2,"pop music"),
        (3,"blue"),
-       (3,"red"), 
-       (3,"green"), 
-       (3,"white"),  
-       (3,"gold"),  
-       (3,"pop culture");                
+       (4,"red"), 
+       (5,"green"), 
+       (6,"white"),  
+       (7,"gold"),  
+       (8,"pop culture");                
