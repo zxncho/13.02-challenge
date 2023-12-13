@@ -8,7 +8,7 @@ Tag.init(
   {
     id:
     {
-      TYPE: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey:true,
       autoIncrement: true
@@ -16,7 +16,7 @@ Tag.init(
 
     tag_name:
     {
-      type: DataTypes.String,
+      type: DataTypes.STRING,
       allowNull: false
 
     },
@@ -31,4 +31,9 @@ Tag.init(
   }
 );
 
-module.exports = Tag;
+const seedProductTags = async () => {
+  await Tag.bulkCreate([tagData]);
+};
+
+
+module.exports = {Tag, seedProductTags};

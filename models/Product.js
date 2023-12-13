@@ -23,20 +23,20 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Category, // Reference to the Category model
+        model: 'category', // Reference to the Category model
         key: 'id', // The primary key in the Category model
       }
     },
    
     product_name:
     {
-     TYPE: DataTypes.string,
+     type: DataTypes.STRING,
      allowNull:false
     },
     
     price:
     {
-      TYPE: DataTypes.float,
+      type: DataTypes.FLOAT,
       allowNull:false,
       validate: {
         isDecimal:true,
@@ -45,7 +45,7 @@ Product.init(
 
     stock:
     {
-      TYPE: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
      validate: {
       isNumeric: true,
@@ -63,4 +63,9 @@ Product.init(
   }
 );
 
-module.exports = Product;
+const seedProducts = async () => {
+  await Product.bulkCreate([productData]);
+};
+
+
+module.exports = {Product, seedProducts};
