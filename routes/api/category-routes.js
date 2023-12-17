@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
-const seedProducts = require('../../seeds/product-seeds');
+// const seedProducts = require('../../seeds/category-seeds');
 
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => {
   Category.findAll({
-    include: [seedProducts],
+    include: [Product],
   })
     .then((Category) => res.json(Category))
     .catch((err) => res.status(500).json(err));
