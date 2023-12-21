@@ -17,7 +17,6 @@ Tag.init(
     tag_name:
     {
       type: DataTypes.STRING,
-      allowNull: false
 
     },
     // define columns
@@ -31,9 +30,9 @@ Tag.init(
   }
 );
 
-const seedProductTags = async () => {
-  await Tag.bulkCreate([tagData]);
-};
+// const seedProductTags = async () => {
+//   await Tag.bulkCreate([tagData]);
+// };
 
 
-module.exports = {Tag, seedProductTags};
+module.exports = Tag;

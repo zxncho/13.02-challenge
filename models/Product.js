@@ -2,7 +2,8 @@
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
-const Category = require('./category.js');
+const Category = require('./Category');
+// const Category = require('./category.js');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
@@ -17,21 +18,12 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
-    category_id:
-    {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'category', // Reference to the Category model
-        key: 'id', // The primary key in the Category model
-      }
-    },
    
     product_name:
     {
      type: DataTypes.STRING,
-     allowNull:false
+     allowNull:false,
+    //  unique: product_name_index
     },
     
     price:
@@ -47,11 +39,21 @@ Product.init(
     {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 10,
      validate: {
       isNumeric: true,
      },
     },
-
+    category_id:
+    {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: false,
+      references: {
+        model: 'category',
+        key:'id'
+      },
+    },
     // define columns
   },
   {
@@ -63,9 +65,9 @@ Product.init(
   }
 );
 
-const seedProducts = async () => {
-  await Product.bulkCreate([productData]);
-};
+// const seedProducts = async () => {
+//   await Product.bulkCreate([productData]);
+// };
 
 
-module.exports = {Product, seedProducts};
+module.exports = Product;

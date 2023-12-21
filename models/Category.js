@@ -30,8 +30,8 @@ Category.init(
   }
 );
 
-const seedCategories = async () => {
-  await Category.bulkCreate([categoryData]);
-};
+// const seedCategories = async () => {
+//   await Category.bulkCreate([categoryData]);
+// };
 
-module.exports = {Category, seedCategories};
+module.exports = Category;
