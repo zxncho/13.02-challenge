@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Tag, ProductTag } = require('../../models');
+const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', (req, res) => {
   Tag.findAll({
     include: [
       {
-        model: ProductTag,
+        model: Product,
         through: ProductTag,
       },
     ],
@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
     },
     include: [
       {
-        model: ProductTag,
+        model: Product,
         through: ProductTag,
       },
     ],

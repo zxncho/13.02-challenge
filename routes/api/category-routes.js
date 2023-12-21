@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
-// const seedProducts = require('../../seeds/category-seeds');
 
 // The `/api/categories` endpoint
 
@@ -8,7 +7,7 @@ router.get('/', (req, res) => {
   Category.findAll({
     include: [Product],
   })
-    .then((Category) => res.json(Category))
+    .then((categories) => res.json(categories))
     .catch((err) => res.status(500).json(err));
 });
 
@@ -19,13 +18,13 @@ router.get('/:id', (req, res) => {
     },
     include: [Product],
   })
-    .then((Category) => res.json(Category))
+    .then((category) => res.json(category))
     .catch((err) => res.status(400).json(err));
 });
 
 router.post('/', (req, res) => {
   Category.create(req.body)
-    .then((Category) => res.status(200).json(Category))
+    .then((category) => res.status(200).json(category))
     .catch((err) => res.status(400).json(err));
 });
 
@@ -35,7 +34,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((Category) => res.status(200).json(Category))
+    .then((category) => res.status(200).json(category))
     .catch((err) => res.status(400).json(err));
 });
 
@@ -45,7 +44,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((Category) => res.status(200).json(Category))
+    .then((category) => res.status(200).json(category))
     .catch((err) => res.status(400).json(err));
 });
 
