@@ -6,6 +6,9 @@ This project is an ecommerce backend.
 
 This ecommerce backend utilizes sequelize to populate a backend server from a SQL database.
 
+## Demo
+[video](https://drive.google.com/file/d/1QmKgpAa5NaUe5OrXD9g3Au-HAhUtHXVS/view)
+
 ## License
 
 MIT License
